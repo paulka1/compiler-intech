@@ -6,7 +6,7 @@
 #define LEXEM_SIZE 60
 
 bool isalphanum (char chr);
-// bool isnumber (char chr);
+bool isnbr (char chr);
 // bool isop (char chr);
 
 // void lexer_assert_simplechar (buffer_t *buffer, char chr, char *msg);
