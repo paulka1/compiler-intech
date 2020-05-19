@@ -4,6 +4,12 @@
 #include <stdbool.h>
 #include "lexer.h"
 #include "buffer.h"
+
+bool isnbr (char chr)
+{
+  return (chr >= '0' && chr <= '9') || chr == '-';
+}
+
 // prend 1 caractère en paramètre
 // et retourne vrai s'il correspond à un chiffre, une lettre,
 // ou un underscore
@@ -107,7 +113,7 @@ char *lexer_getalphanum_rollback (buffer_t *buffer)
 
 long lexer_getnumber (buffer_t *buffer)
 {
-char save[LEXEM_SIZE] = "";
+  char save[LEXEM_SIZE] = "";
   size_t count = 0;
   buf_lock(buffer);
   do {
@@ -123,7 +129,6 @@ char save[LEXEM_SIZE] = "";
     exit(1); // arrêt brutal du programme
   }
 
-  // char *out = malloc(sizeof(char) * count);
   save[count - 1] = '\0';
   long out = strtol(save, NULL, 10);
   
