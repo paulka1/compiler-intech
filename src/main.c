@@ -28,6 +28,18 @@ int suffix (const char *buffer, const char *endswith) {
   return strcmp(&buffer[b_len - e_len], endswith);
 }
 
+/**
+ * Useless function to delete afterwards
+ * only for tests
+ */
+void test_stuff (buffer_t *buffer)
+{
+  buf_skipblank(buffer);
+  char *lexem = lexer_getalphanum_rollback(buffer);
+  printf("variable trouvée: '%s'\n", lexem);
+  buf_print(buffer);
+}
+
 int main (int argc, char **argv)
 {
   if (argc != 2) {
@@ -49,11 +61,8 @@ int main (int argc, char **argv)
   buffer_t *pbuffer = &buffer;
   buf_init(pbuffer, input);
 
-  char *lexem = lexer_getalphanum_rollback(&buffer);
-  printf("%s\n",lexem);
 
-  // char moncaractere = buf_getchar_after_blank(&buffer);
-  // printf("%c",moncaractere);
+  test_stuff(pbuffer);
 
   ast_list_t *functions = parse(pbuffer);
   printf("\n\n\n");
