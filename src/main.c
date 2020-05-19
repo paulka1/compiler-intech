@@ -8,6 +8,7 @@
 #include "ast.h"
 #include "parser.h"
 #include "utils.h"
+#include "lexer.h"
 
 
 symbol_t *global_table = NULL;
@@ -47,6 +48,12 @@ int main (int argc, char **argv)
   buffer_t buffer;
   buffer_t *pbuffer = &buffer;
   buf_init(pbuffer, input);
+
+  char *lexem = lexer_getalphanum_rollback(&buffer);
+  printf("%s\n",lexem);
+
+  // char moncaractere = buf_getchar_after_blank(&buffer);
+  // printf("%c",moncaractere);
 
   ast_list_t *functions = parse(pbuffer);
   printf("\n\n\n");
