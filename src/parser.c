@@ -101,6 +101,10 @@ ast_t *parse_declaration (buffer_t *buffer)
     exit(1);
   }
 
+  // if(sym_search(*table, var_name)){
+  //   printf("Redeclaration of parameter");
+  // }
+
   ast_t *var = ast_new_variable(var_name, type);
   buf_skipblank(buffer);
   char next = buf_getchar(buffer);
