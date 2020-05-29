@@ -23,8 +23,8 @@ extern ast_t **past;
 ast_t *parse_function (buffer_t *buffer)
 {
   // TODO
-  char *name = NULL;
-  
+  //char *name = NULL;
+  //printf("coucou");
   // ast_list_t *params = parse_parameters(buffer);
   // int return_type = parse_return_type(buffer);
   // ast_list_t *stmts = parse_function_body(buffer);

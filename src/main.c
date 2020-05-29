@@ -30,6 +30,7 @@ int suffix (const char *buffer, const char *endswith) {
 
 int main (int argc, char **argv)
 {
+
   if (argc != 2) {
     help(argv[0]);
     printf("Not enough arguments.\n");

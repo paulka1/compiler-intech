@@ -27,14 +27,6 @@ bool isalphanum (char chr)
   return false;
 }
 
-bool isnbr (char chr)
-{
-  if (chr >= '0' && chr <= '9'){
-    return true;
-  }
-  return false;
-}
-
 /**
  * Notre objectif est de lire le maximum de caractères
  * tant que ceux-ci correspondent aux possibilités suivantes:
