@@ -101,13 +101,6 @@ ast_t *parse_declaration (buffer_t *buffer)
     exit(1);
   }
 
-  // if(sym_search(*table, var_name)){
-  //   printf("Redeclaration of parameter");
-  // }
-  // sym_add(*table, var_name){
-
-  // };
-
   ast_t *var = ast_new_variable(var_name, type);
   buf_skipblank(buffer);
   char next = buf_getchar(buffer);
@@ -145,6 +138,8 @@ ast_list_t *parse_function_body (buffer_t *buffer)
   do {
     ast_t *statement = parse_statement(buffer);
     ast_list_add(&stmts, statement);
+    buf_skipblank(buffer);
+    lexer_assert_equalsign (buffer, "=");
     buf_skipblank(buffer);
     next = buf_getchar_rollback(buffer);
   } while (next != '}');

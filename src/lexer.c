@@ -36,6 +36,16 @@ void lexer_assert_openbracket (buffer_t *buffer, char *msg)
   }
 }
 
+void lexer_assert_equalsign (buffer_t *buffer, char *msg)
+{
+  char next = buf_getchar(buffer);
+  if (next != '=') {
+    printf("%s. exiting.\n", msg);
+    buf_print(buffer);
+    exit(1);
+  }
+}
+
 void lexer_assert_openbrace (buffer_t *buffer, char *msg)
 {
   char next = buf_getchar(buffer);

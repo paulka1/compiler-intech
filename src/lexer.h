@@ -16,7 +16,7 @@ void lexer_assert_openbrace (buffer_t *buffer, char *msg);
 // void lexer_assert_closebrace (buffer_t *buffer, char *msg);
 void lexer_assert_openbracket (buffer_t *buffer, char *msg);
 // void lexer_assert_closebracket (buffer_t *buffer, char *msg);
-// void lexer_assert_equalsign (buffer_t *buffer, char *msg);
+void lexer_assert_equalsign (buffer_t *buffer, char *msg);
 // void lexer_assert_blank (buffer_t *buffer, char *msg);
 
 /** lexer_getalphanum_rollback mallocs and rollbacks after read. **/
